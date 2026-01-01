@@ -5,7 +5,6 @@ RESTful API for Anomaly Brewing, built with Express.js and integrated with DatoC
 ## Features
 
 - Content management integration with DatoCMS
-- Contact form submission via Web3Forms
 - Newsletter subscription via EmailOctopus
 - Multi-locale support
 - CORS configuration
@@ -16,7 +15,6 @@ RESTful API for Anomaly Brewing, built with Express.js and integrated with DatoC
 - Node.js 18+ (ES modules support)
 - npm or yarn
 - DatoCMS account and API token
-- Web3Forms access key
 - EmailOctopus API key
 
 ## Installation
@@ -48,8 +46,6 @@ See `.env.example` for all required environment variables.
 ### Required Variables
 
 - `DATOCMS_API_TOKEN` - DatoCMS API token for content fetching
-- `WEB_3_FORMS_ACCESS_KEY` - Web3Forms API access key
-- `WEB_3_FORMS_API_ENDPOINT` - Web3Forms API endpoint URL
 - `EMAIL_OCTOPUS_API_KEY` - EmailOctopus API key
 - `EMAIL_OCTOPUS_API_ENDPOINT` - EmailOctopus API endpoint URL
 - `CORS_ORIGIN` - Allowed CORS origin (e.g., `http://localhost:3000`)
@@ -73,8 +69,6 @@ See `.env.example` for all required environment variables.
 - `GET /:locale/content/page/:page` - Get specific page by slug
 
 ### API Endpoints
-- `POST /:locale/api/contact` - Submit contact form
-  - Body: `{ name: string, email: string, message: string }`
 - `POST /:locale/api/subscribe` - Subscribe to newsletter
   - Body: `{ email: string }`
 
@@ -124,7 +118,7 @@ src/
 ├── router.js           # Route definitions
 ├── config.js           # Application configuration
 ├── endpoints/          # API endpoints
-│   ├── api/           # API routes (contact, subscribe)
+│   ├── api/           # API routes (subscribe)
 │   └── content/       # Content routes (site, pages, page)
 ├── services/          # External service integrations
 │   └── dato/         # DatoCMS service layer
