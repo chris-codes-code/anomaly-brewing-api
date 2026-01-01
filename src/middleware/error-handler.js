@@ -2,6 +2,11 @@ import { createErrorResponse } from '../utils/response.js';
 
 // Centralized error handling middleware
 const errorHandler = (err, req, res, next) => {
+  // Check if response has already been sent
+  if (res.headersSent) {
+    return next(err);
+  }
+
   // Log error for debugging
   console.error('Error:', {
     message: err.message,
