@@ -49,20 +49,20 @@ const validateEmail = (email) => {
   return true;
 };
 
-const sanitizeString = (str, maxLength = 10000) => {
+const sanitiseString = (str, maxLength = 10000) => {
   if (typeof str !== 'string') {
     return '';
   }
 
   // Remove null bytes and trim
-  let sanitized = str.replace(/\0/g, '').trim();
+  let sanitised = str.replace(/\0/g, '').trim();
 
   // Enforce max length
-  if (sanitized.length > maxLength) {
-    sanitized = sanitized.substring(0, maxLength);
+  if (sanitised.length > maxLength) {
+    sanitised = sanitised.substring(0, maxLength);
   }
 
-  return sanitized;
+  return sanitised;
 };
 
-export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitizeString };
+export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitiseString };

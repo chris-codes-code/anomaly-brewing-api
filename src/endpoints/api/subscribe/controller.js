@@ -1,5 +1,5 @@
 import { createError, createErrorResponse, createResponse } from '../../../utils/response.js';
-import { validateEmail, sanitizeString } from '../../../utils/validation.js';
+import { validateEmail, sanitiseString } from '../../../utils/validation.js';
 import config from '../../../config.js';
 
 const mapNewsletterResult = (data) => {
@@ -19,16 +19,15 @@ const postSubscribeController = async (req, res) => {
 
     if (!email) throw createError('Email is required', 400);
 
-    // Validate and sanitize email
     validateEmail(email);
-    const sanitizedEmail = sanitizeString(email, 254);
+    const sanitisedEmail = sanitiseString(email, 254);
 
     const response = await fetch(config.emailOctopus.apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         api_key: config.emailOctopus.apiKey,
-        email_address: sanitizedEmail,
+        email_address: sanitisedEmail,
         status: 'SUBSCRIBED',
       }),
       signal: AbortSignal.timeout(10000),
