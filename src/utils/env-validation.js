@@ -1,10 +1,8 @@
 const requiredEnvVars = [
   'DATOCMS_API_TOKEN',
-  'WEB_3_FORMS_ACCESS_KEY',
-  'WEB_3_FORMS_API_ENDPOINT',
+  'CORS_ORIGIN',
   'EMAIL_OCTOPUS_API_KEY',
   'EMAIL_OCTOPUS_API_ENDPOINT',
-  'CORS_ORIGIN',
 ];
 
 const validateEnvVars = () => {
@@ -13,7 +11,7 @@ const validateEnvVars = () => {
   if (missing.length > 0) {
     throw new Error(
       `Missing required environment variables: ${missing.join(', ')}\n` +
-      'Please check your .env file and ensure all required variables are set.'
+      'Please check your .env file and ensure all required variables are set.',
     );
   }
 };
