@@ -21,6 +21,11 @@ const siteQueryGQL = `
       footerNavigation {
         ${controlSnippetQueryGQL}
       }
+      socialLinks {
+        label
+        icon
+        url
+      }
     }
   }
 `;
