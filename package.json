@@ -1,0 +1,27 @@
+{
+  "name": "anomaly-brewing-api",
+  "version": "1.0.0",
+  "description": "Anomaly Brewing API",
+  "type": "module",
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@datocms/cda-client": "^0.2.10",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "serve-favicon": "^2.5.0",
+    "undici": "^7.15.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.3"
+  }
+}
