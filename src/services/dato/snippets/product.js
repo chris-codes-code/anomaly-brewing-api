@@ -3,10 +3,11 @@ import { imageSnippetQueryGQL } from './image.js';
 const productSnippetQueryGQL = `
   slug
   title
+  shopifyProduct
   svgPath
   svgViewBox
   variants {
-    sku
+    shopifyVariant
     metadata {
       volume
       quantity
