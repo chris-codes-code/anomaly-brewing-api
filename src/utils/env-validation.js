@@ -3,6 +3,9 @@ const requiredEnvVars = [
   'CORS_ORIGIN',
   'EMAIL_OCTOPUS_API_KEY',
   'EMAIL_OCTOPUS_API_ENDPOINT',
+  'SHOPIFY_STORE_DOMAIN',
+  'SHOPIFY_PUBLIC_ACCESS_TOKEN',
+  'SHOPIFY_API_VERSION',
 ];
 
 const validateEnvVars = () => {
