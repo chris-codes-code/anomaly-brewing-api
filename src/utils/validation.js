@@ -29,27 +29,31 @@ const validateSlug = (slug) => {
   return true;
 };
 
+const createValidationError = (message, status = 400) => {
+  const error = new Error(message);
+  error.status = status;
+  return error;
+};
+
 const validateEmail = (email) => {
   if (!email || typeof email !== 'string') {
-    throw new Error('Email is required and must be a string');
+    throw createValidationError('Email is required and must be a string', 400);
   }
 
-  // RFC 5322 compliant email regex (simplified)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(email)) {
-    throw new Error('Invalid email format');
+    throw createValidationError('Invalid email format', 400);
   }
 
-  // Additional length check
   if (email.length > 254) {
-    throw new Error('Email address is too long');
+    throw createValidationError('Email address is too long', 400);
   }
 
   return true;
 };
 
-const sanitiseString = (str, maxLength = 10000) => {
+const sanitizeString = (str, maxLength = 10000) => {
   if (typeof str !== 'string') {
     return '';
   }
@@ -65,4 +69,4 @@ const sanitiseString = (str, maxLength = 10000) => {
   return sanitised;
 };
 
-export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitiseString };
+export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitizeString };
