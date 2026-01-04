@@ -31,7 +31,7 @@ const siteQueryGQL = `
 `;
 
 const getSite = async () => {
-  return await executeQuery(siteQueryGQL, {
+  return executeQuery(siteQueryGQL, {
     token: datocms.apiToken,
   });
 };

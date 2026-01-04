@@ -13,7 +13,7 @@ const pagesQueryGQL = `
 `;
 
 const getPages = async () => {
-  return await executeQuery(pagesQueryGQL, {
+  return executeQuery(pagesQueryGQL, {
     token: datocms.apiToken,
   });
 };
