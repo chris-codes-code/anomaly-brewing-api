@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@datocms/cda-client": "^0.2.10",
+    "@shopify/storefront-api-client": "^1.0.9",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
     "helmet": "^7.1.0",
-    "resend": "^6.6.0",
-    "serve-favicon": "^2.5.0",
-    "undici": "^7.15.0"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "dotenv": "^16.5.0",
