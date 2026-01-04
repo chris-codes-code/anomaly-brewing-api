@@ -1,5 +1,5 @@
 import { createError, createErrorResponse, createResponse } from '../../../utils/response.js';
-import { validateEmail, sanitizeString } from '../../../utils/validation.js';
+import { validateEmail, sanitiseString } from '../../../utils/validation.js';
 import { EMAIL_OCTOPUS, HTTP_STATUS, REQUEST_LIMITS } from '../../../utils/constants.js';
 import config from '../../../config.js';
 
@@ -23,14 +23,14 @@ const postSubscribeController = async (req, res) => {
     }
 
     validateEmail(email);
-    const sanitizedEmail = sanitizeString(email, 254);
+    const sanitisedEmail = sanitiseString(email, 254);
 
     const response = await fetch(config.emailOctopus.apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         api_key: config.emailOctopus.apiKey,
-        email_address: sanitizedEmail,
+        email_address: sanitisedEmail,
         status: EMAIL_OCTOPUS.STATUS.SUBSCRIBED,
       }),
       signal: AbortSignal.timeout(REQUEST_LIMITS.TIMEOUT_MS),

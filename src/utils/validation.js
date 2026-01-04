@@ -53,7 +53,7 @@ const validateEmail = (email) => {
   return true;
 };
 
-const sanitizeString = (str, maxLength = 10000) => {
+const sanitiseString = (str, maxLength = 10000) => {
   if (typeof str !== 'string') {
     return '';
   }
@@ -69,4 +69,4 @@ const sanitizeString = (str, maxLength = 10000) => {
   return sanitised;
 };
 
-export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitizeString };
+export { validateRequiredParams, validateLocale, validateSlug, validateEmail, sanitiseString };
